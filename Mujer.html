@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="CA-FASHION.png" type="image/x-icon">
+    <title>Ropa para Mujer - Tienda de Ropa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        header img {
+            height: 40px;
+            width: auto;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .product-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .product-item h3 {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        .product-item p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .product-item button {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .product-item button:hover {
+            background-color: #e68900;
+        }
+        .price {
+            font-size: 20px;
+            color: #ff9800;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="CA-FASHION.png" alt="Logo de Mujer"> 
+    <h1>Ropa para Mujer</h1>
+</header>
+
+<nav>
+    <a href="index.html.html">Inicio</a>
+    <a href="Hombre.html">Hombre</a>
+    <a href="Mujer.html">Mujer</a>
+    <a href="Accesorios.html">Accesorios</a>
+    <a href="Estampados.html">Estampados</a>
+    <a href="Carritocompras.html">Carrito</a> 
+</nav>
+
+<section class="product-grid">
+    <div class="product-item">
+        <img src="Imagenes/Mujeres/Vestido-de-dama png.png" alt="Vestido de dama" onclick="mostrarImagen('Imagenes/Mujeres/Vestido-de-dama png.png')">
+        <h3>Vestido</h3>
+        <p>Vestido de seda, cómodo y ligero.</p>
+        <div class="price">29,000</div>
+        <label for="talla-vestido">Talla:</label>
+        <select id="talla-vestido">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="agregarAlCarrito('Vestido', 29000, document.getElementById('talla-vestido').value)">Agregar al carrito</button>
+    </div>
+    <div class="product-item">
+        <img src="Imagenes/Mujeres/Pantalon-Elegante png.png" alt="Pantalón Elegante Mujer" onclick="mostrarImagen('Imagenes/Mujeres/Pantalon-Elegante png.png')">
+        <h3>Pantalón Elegante Mujer</h3>
+        <p>Ten tu outfit ideal para cualquier evento.</p>
+        <div class="price">59,000</div>
+        <label for="talla-pantalon-elegante">Talla:</label>
+        <select id="talla-pantalon-elegante">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="agregarAlCarrito('Pantalón Elegante', 59000, document.getElementById('talla-pantalon-elegante').value)">Agregar al carrito</button>
+    </div>
+    <div class="product-item">
+        <img src="Imagenes/Mujeres/Conjunto-Mujer png.png" alt="Conjunto Mujer" onclick="mostrarImagen('Imagenes/Mujeres/Conjunto-Mujer png.png')">
+        <h3>Conjunto Mujer</h3>
+        <p>Conjunto para salir de casa con estilo.</p>
+        <div class="price">34,000</div>
+        <label for="talla-conjunto">Talla:</label>
+        <select id="talla-conjunto">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="agregarAlCarrito('Conjunto Mujer', 34000, document.getElementById('talla-conjunto').value)">Agregar al carrito</button>
+    </div>
+    <div class="product-item">
+        <img src="Imagenes/Mujeres/Pantalon-de-MUjer png.png" alt="Pantalón casual" onclick="mostrarImagen('Imagenes/Mujeres/Pantalon-de-MUjer png.png')">
+        <h3>Pantalón Casual</h3>
+        <p>Pantalón casual para tus días con amigos.</p>
+        <div class="price">89,000</div>
+        <label for="talla-pantalon-casual">Talla:</label>
+        <select id="talla-pantalon-casual">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="agregarAlCarrito('Pantalón Casual', 89000, document.getElementById('talla-pantalon-casual').value)">Agregar al carrito</button>
+    </div>
+    <div class="product-item">
+        <img src="Imagenes/Mujeres/VestidoMujer png.png" alt="Vestido Elegante" onclick="mostrarImagen('Imagenes/Mujeres/VestidoMujer png.png')">
+        <h3>Vestido Elegante</h3>
+        <p>Perfecto para reuniones importantes.</p>
+        <div class="price">19,000</div>
+        <label for="talla-vestido-elegante">Talla:</label>
+        <select id="talla-vestido-elegante">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <button onclick="agregarAlCarrito('Vestido Elegante', 19000, document.getElementById('talla-vestido-elegante').value)">Agregar al carrito</button>
+    </div>
+</section>
+
+
+<script>
+    function agregarAlCarrito(nombreProducto, precioProducto, talla) {
+        if (!talla) {
+            alert('Por favor selecciona una talla antes de agregar al carrito.');
+            return;
+        }
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const producto = { nombre: nombreProducto, precio: precioProducto, talla: talla, cantidad: 1 };
+        const productoExistente = carrito.find(item => item.nombre === nombreProducto && item.talla === talla);
+        
+        if (productoExistente) {
+            productoExistente.cantidad += 1;
+        } else {
+            carrito.push(producto);
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        alert(`${nombreProducto} (${talla}) ha sido agregado al carrito.`);
+    }
+
+    function mostrarImagen(imagenSrc) {
+        const modal = document.getElementById('modalImagen');
+        const imagenAmpliada = document.getElementById('imagenAmpliada');
+        imagenAmpliada.src = imagenSrc;
+        modal.style.display = 'flex';
+    }
+
+    function cerrarModal() {
+        const modal = document.getElementById('modalImagen');
+        modal.style.display = 'none';
+    }
+</script>
+</body>
+</html>
+

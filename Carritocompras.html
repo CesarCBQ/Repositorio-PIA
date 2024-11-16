@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .cart-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cart-items {
+            margin-top: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fafafa;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        .cart-item span {
+            font-size: 16px;
+        }
+        .cart-item button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .cart-item button:hover {
+            background-color: #c0392b;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        .empty-cart {
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Carrito de Compras</h1>
+</header>
+
+<nav>
+    <a href="index.html.html">Inicio</a>
+    <a href="Hombre.html">Hombre</a>
+    <a href="Mujer.html">Mujer</a>
+    <a href="Accesorios.html">Accesorios</a>
+    <a href="Estampados.html">Estampados</a>
+    <a href="Carritocompras.html">Carrito</a>
+</nav>
+
+<div class="container">
+    <div class="cart-container">
+        <h2>Productos en tu carrito</h2>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-cart">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-total">
+            Total: $<span id="cart-total">0</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    
+    function agregarAlCarrito(nombre, precio) {
+        
+        const producto = { nombre, precio };
+        carrito.push(producto);
+
+       
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        actualizarCarrito();
+    }
+
+    function eliminarDelCarrito(index) {
+        carrito.splice(index, 1); 
+
+       
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        
+      
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        if (carrito.length === 0) {
+            cartItemsContainer.innerHTML = '<p class="empty-cart">Tu carrito está vacío.</p>';
+        } else {
+          
+            carrito.forEach((producto, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <span>${producto.nombre}</span>
+                    <span>$${producto.precio}</span>
+                    <button onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+                total += producto.precio;
+            });
+        }
+
+        cartTotal.textContent = total;
+    }
+
+    
+    actualizarCarrito();
+</script>
+
+</body>
+</html>

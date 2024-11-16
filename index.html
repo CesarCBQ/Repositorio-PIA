@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="CA-FASHION.png" type="image/x-icon">
+    <title>CA Fashion - Inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        header img {
+            height: 40px;
+            width: auto;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .category-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 15px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .category-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .category-item h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .category-item a {
+            text-decoration: none;
+            color: white;
+            background-color: #ff9800;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .category-item a:hover {
+            background-color: #e68900;
+        }
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-section {
+            margin: 10px;
+            flex: 1 1 200px;
+        }
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #fff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .footer-section p, .footer-section ul {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            border-top: 1px solid #444;
+            padding-top: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="CA-FASHION.png" alt="Logo de la Tienda"> 
+    <h1>CA Fashion</h1>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="Login.html">Login</a>
+    <a href="Carritocompras.html">Carrito</a>
+</nav>
+
+<section class="categories">
+    <div class="category-item">
+        <img src="Catalog/hombre.png" alt="Hombre">
+        <h3>Ropa para Hombre</h3>
+        <a href="Hombre.html">Ver más</a>
+    </div>
+    <div class="category-item">
+        <img src="Catalog/Mujer.png" alt="Mujer">
+        <h3>Ropa para Mujer</h3>
+        <a href="Mujer.html">Ver más</a>
+    </div>
+    <div class="category-item">
+        <img src="Catalog/accesorios.png" alt="Accesorios">
+        <h3>Accesorios</h3>
+        <a href="Accesorios.html">Ver más</a>
+    </div>
+    <div class="category-item">
+        <img src="Catalog/Estampados.png" alt="Estampados">
+        <h3>Estampados Personalizados</h3>
+        <a href="Estampados.html">Ver más</a>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Contacto</h4>
+            <p><strong>Teléfono:</strong> +57 300 6824 886</p>
+            <p><strong>Email:</strong> contacto@tuempresa.com</p>
+            <p><strong>Dirección:</strong> Calle 18b#186-09, Bogotá, Colombia</p>
+        </div>
+        <div class="footer-section">
+            <h4>Síguenos</h4>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Enlaces</h4>
+            <ul>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
+                <li><a href="#terms">Términos y Condiciones</a></li>
+                <li><a href="#privacy">Política de Privacidad</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Mi Empresa. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>
